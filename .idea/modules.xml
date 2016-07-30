@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ZXing-Standalone.iml" filepath="$PROJECT_DIR$/ZXing-Standalone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZXing-Standalone-library.iml" filepath="$PROJECT_DIR$/ZXing-Standalone-library.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample_app/app.iml" filepath="$PROJECT_DIR$/sample_app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sample_app/sample_app.iml" filepath="$PROJECT_DIR$/sample_app/sample_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zxing_standalone/zxing_standalone.iml" filepath="$PROJECT_DIR$/zxing_standalone/zxing_standalone.iml" />
       <module fileurl="file://$PROJECT_DIR$/zxing_standalone/zxing_standalone.iml" filepath="$PROJECT_DIR$/zxing_standalone/zxing_standalone.iml" />
     </modules>
   </component>
