@@ -1,53 +1,48 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Zxing-standalone-library by tarun0</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/tarun0/ZXing-Standalone-library">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/tarun0/ZXing-Standalone-library/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/tarun0/ZXing-Standalone-library/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+    <section class="page-header">
+      <h1 class="project-name">Zxing-standalone-library</h1>
+      <h2 class="project-tagline">Standalone ZXing barcode/qrcode scanner library so that you don&#39;t have to install the ZXing Barcode Scanner app explicitly.</h2>
+      <a href="https://github.com/tarun0/ZXing-Standalone-library" class="btn">View on GitHub</a>
+      <a href="https://github.com/tarun0/ZXing-Standalone-library/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/tarun0/ZXing-Standalone-library/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <div class="wrapper">
-
-      <section>
-        <div id="title">
-          <h1>Zxing-standalone-library</h1>
-          <p>Standalone ZXing barcode/qrcode scanner library so that you don&#39;t have to install the ZXing Barcode Scanner app explicitly.</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/tarun0">tarun0</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
-
-        <h1>
+    <section class="main-content">
+      <h1>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h1>
 
-<p>This is the library modified from the original <a href="https://github.com/zxing/zxing">ZXing Project</a>. The code is not modified in any way but is just compiled into a library so that the user doesn't have to download the app separately for which you have to use <a href="https://github.com/zxing/zxing/blob/master/android-integration/src/main/java/com/google/zxing/integration/android/IntentIntegrator.java">IntentIntegrator</a> to handle the app installations.</p>
+<p>This is the library modified from the original <a href="https://github.com/zxing/zxing">ZXing Project</a>. The code is not modified in any way but is just compiled into a library so that the end user doesn't have to download the scanner app separately.</p>
 
 <h1>
-<a id="uses" class="anchor" href="#uses" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Uses</h1>
+<a id="adding-the-library" class="anchor" href="#adding-the-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adding the library</h1>
 
-<p>Add the <code>zxing_standalone</code> project from the library into your project by selecting the project&gt;New&gt;Module&gt;Import Gradle Project.
-Send as intent when you need to scan, like on clicking on a button</p>
+<p>Add this line (if not already present there) in the project's <code>build.gradle</code> file</p>
+
+<pre><code>repositories {
+    jcenter()
+}
+</code></pre>
+
+<p>Add this statement in the <code>dependencies</code> block of app's <code>build.gradle</code> file</p>
+
+<pre><code>compile 'com.tarun0.zxing-standalone:zxing-standalone:1.0.0'
+</code></pre>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h1>
+
+<p>Send an intent when you need to scan, like on clicking on a button</p>
 
 <pre><code>Intent intent = new Intent(getApplicationContext(),CaptureActivity.class);
             intent.setAction("com.google.zxing.client.android.SCAN");
@@ -76,13 +71,22 @@ Send as intent when you need to scan, like on clicking on a button</p>
 <ul>
 <li>Please consider going through this answer by one of the original authors before including the app in your project, here: <a href="http://stackoverflow.com/a/9942761">http://stackoverflow.com/a/9942761</a>
 </li>
-<li>To compile the library yourself from the original source, follow <a href="http://stackoverflow.com/a/38423626/2922480">this step by step tutorial</a>
-</li>
+<li>To compile the library yourself from the original source, follow <a href="http://stackoverflow.com/a/38423626/2922480">this step by step tutorial</a>.</li>
 </ul>
-      </section>
 
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h1>
+
+<p>All the portions of the software/code are licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache-2.0</a>, if not mentioned otherwise.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/tarun0/ZXing-Standalone-library">Zxing-standalone-library</a> is maintained by <a href="https://github.com/tarun0">tarun0</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
   </body>
 </html>
