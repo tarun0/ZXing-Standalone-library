@@ -28,8 +28,10 @@ import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.ReaderException;
+import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.LuminanceSource;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
@@ -81,8 +83,21 @@ final class DecodeHandler extends Handler {
         rawResult = multiFormatReader.decodeWithState(bitmap);
       } catch (ReaderException re) {
         // continue
-      } finally {
+      } 
+      finally {
         multiFormatReader.reset();
+      }
+
+      if (rawResult == null) {
+        LuminanceSource invertedSource = source.invert();
+        bitmap = new BinaryBitmap(new HybridBinarizer(invertedSource));
+        try {
+          rawResult = multiFormatReader.decodeWithState(bitmap);
+        } catch (NotFoundException e) {
+          // continue
+        } finally {
+          multiFormatReader.reset();
+        }
       }
     }
 
